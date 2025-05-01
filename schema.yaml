@@ -1,0 +1,17 @@
+COLUMNS:
+  Age: int64
+  Gender: object
+  Region: object
+  Marital_status: object
+  Number Of Dependants: int64
+  BMI_Category: object
+  Smoking_Status: object
+  Employment_Status: object
+  Income_Level: object
+  Income_Lakhs: int64
+  Medical History: object
+  Insurance_Plan: object
+  Annual_Premium_Amount: int64
+
+TARGET_COLUMN:
+  name: Annual_Premium_Amount

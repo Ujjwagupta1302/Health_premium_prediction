@@ -1,0 +1,22 @@
+models:
+
+  ElasticNet:
+    alpha: [0.1, 0.5, 1.0]
+    l1_ratio: [0.1, 0.5, 0.9]
+
+  RandomForestRegressor:
+    n_estimators: [100, 200]
+    max_depth: [5, 10]
+    min_samples_split: [2, 4]
+
+  #SVR:
+    #C: [0.1, 1.0, 10.0]
+    #epsilon: [0.1, 0.2]
+    #kernel: ["linear", "rbf"]
+
+  #XGBoostRegressor:
+    #n_estimators: [100, 200]
+    #learning_rate: [0.01, 0.1, 0.2]
+    #max_depth: [3, 6, 9]
+    #subsample: [0.6, 0.8, 1.0]
+    #colsample_bytree: [0.6, 0.8, 1.0]
