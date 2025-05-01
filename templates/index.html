@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="page-content">
+    <div class="form-v9-content" style="background-image: url('static/assets/img/form-v9.jpg')">
+      <form class="form-detail" action="/predict" method="post">
+        <h2>Please Fill The Information</h2>
+        
+        <!-- Age Field -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" class="input-text" placeholder="Enter your age" required>
+          </div>
+        </div>
+
+        <!-- Number of Dependants Field -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="number_of_dependants">Number of Dependants:</label>
+            <input type="number" name="number_of_dependants" id="number_of_dependants" class="input-text" placeholder="Number of dependants" required>
+          </div>
+        </div>
+
+        <!-- Income Field -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="income_lakhs">Income (in Lakhs):</label>
+            <input type="number" step="0.01" name="income_lakhs" id="income_lakhs" class="input-text" placeholder="Enter income in lakhs" required>
+          </div>
+        </div>
+
+        <!-- Insurance Plan Field -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="insurance_plan">Insurance Plan:</label>
+            <input type="number" name="insurance_plan" id="insurance_plan" class="input-text" placeholder="Enter insurance plan" required>
+          </div>
+        </div>
+
+        <!-- Normalized Risk Score Field -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="normalized_risk_score">Normalized Risk Score:</label>
+            <input type="number" step="0.01" name="normalized_risk_score" id="normalized_risk_score" class="input-text" placeholder="Enter normalized risk score" required>
+          </div>
+        </div>
+
+        <!-- Gender Male Field -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="gender_Male">Gender (Male):</label>
+            <input type="number" name="gender_Male" id="gender_Male" class="input-text" placeholder="Enter 1 if Male, 0 if Female" required>
+          </div>
+        </div>
+
+        <!-- Region Fields -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="region_Northwest">Region (Northwest):</label>
+            <input type="number" name="region_Northwest" id="region_Northwest" class="input-text" placeholder="Enter 1 if Northwest" required>
+          </div>
+
+          <div class="form-row">
+            <label for="region_Southeast">Region (Southeast):</label>
+            <input type="number" name="region_Southeast" id="region_Southeast" class="input-text" placeholder="Enter 1 if Southeast" required>
+          </div>
+
+          <div class="form-row">
+            <label for="region_Southwest">Region (Southwest):</label>
+            <input type="number" name="region_Southwest" id="region_Southwest" class="input-text" placeholder="Enter 1 if Southwest" required>
+          </div>
+        </div>
+
+        <!-- Marital Status Field -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="marital_status_Unmarried">Marital Status (Unmarried):</label>
+            <input type="number" name="marital_status_Unmarried" id="marital_status_Unmarried" class="input-text" placeholder="Enter 1 if Unmarried" required>
+          </div>
+        </div>
+
+        <!-- BMI Category Fields -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="bmi_category_Obesity">BMI Category (Obesity):</label>
+            <input type="number" name="bmi_category_Obesity" id="bmi_category_Obesity" class="input-text" placeholder="Enter 1 if Obesity" required>
+          </div>
+
+          <div class="form-row">
+            <label for="bmi_category_Overweight">BMI Category (Overweight):</label>
+            <input type="number" name="bmi_category_Overweight" id="bmi_category_Overweight" class="input-text" placeholder="Enter 1 if Overweight" required>
+          </div>
+
+          <div class="form-row">
+            <label for="bmi_category_Underweight">BMI Category (Underweight):</label>
+            <input type="number" name="bmi_category_Underweight" id="bmi_category_Underweight" class="input-text" placeholder="Enter 1 if Underweight" required>
+          </div>
+        </div>
+
+        <!-- Smoking Status Fields -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="smoking_status_Occasional">Smoking Status (Occasional):</label>
+            <input type="number" name="smoking_status_Occasional" id="smoking_status_Occasional" class="input-text" placeholder="Enter 1 if Occasional" required>
+          </div>
+
+          <div class="form-row">
+            <label for="smoking_status_Regular">Smoking Status (Regular):</label>
+            <input type="number" name="smoking_status_Regular" id="smoking_status_Regular" class="input-text" placeholder="Enter 1 if Regular" required>
+          </div>
+        </div>
+
+        <!-- Employment Status Fields -->
+        <div class="form-row-total">
+          <div class="form-row">
+            <label for="employment_status_Salaried">Employment Status (Salaried):</label>
+            <input type="number" name="employment_status_Salaried" id="employment_status_Salaried" class="input-text" placeholder="Enter 1 if Salaried" required>
+          </div>
+
+          <div class="form-row">
+            <label for="employment_status_Self_Employed">Employment Status (Self-Employed):</label>
+            <input type="number" name="employment_status_Self_Employed" id="employment_status_Self_Employed" class="input-text" placeholder="Enter 1 if Self-Employed" required>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-row-last">
+          <input type="submit" name="register" class="register" value="Predict">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
