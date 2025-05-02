@@ -1,141 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Insurance Risk Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .form-heading {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+    </style>
 </head>
 <body>
 
-<!-- Main Content-->
-<div class="container px-4 px-lg-5">
-  <div class="page-content">
-    <div class="form-v9-content" style="background-image: url('static/assets/img/form-v9.jpg')">
-      <form class="form-detail" action="/predict" method="post">
-        <h2>Please Fill The Information</h2>
-        
-        <!-- Age Field -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="age">Age:</label>
-            <input type="number" name="age" id="age" class="input-text" placeholder="Enter your age" required>
-          </div>
-        </div>
+<div class="container">
+    <div class="form-container">
+        <h2 class="form-heading">Insurance Risk Prediction</h2>
+        <form action="/predict" method="POST">
 
-        <!-- Number of Dependants Field -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="number_of_dependants">Number of Dependants:</label>
-            <input type="number" name="number_of_dependants" id="number_of_dependants" class="input-text" placeholder="Number of dependants" required>
-          </div>
-        </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" class="form-control" name="age" step="0.1" required>
+            </div>
 
-        <!-- Income Field -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="income_lakhs">Income (in Lakhs):</label>
-            <input type="number" step="0.01" name="income_lakhs" id="income_lakhs" class="input-text" placeholder="Enter income in lakhs" required>
-          </div>
-        </div>
+            <div class="mb-3">
+                <label for="dependants" class="form-label">Number of Dependants</label>
+                <input type="number" class="form-control" name="number_of_dependants" step="0.1" required>
+            </div>
 
-        <!-- Insurance Plan Field -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="insurance_plan">Insurance Plan:</label>
-            <input type="number" name="insurance_plan" id="insurance_plan" class="input-text" placeholder="Enter insurance plan" required>
-          </div>
-        </div>
+            <div class="mb-3">
+                <label for="income" class="form-label">Income (in Lakhs)</label>
+                <input type="number" class="form-control" name="income_lakhs" step="0.1" required>
+            </div>
 
-        <!-- Normalized Risk Score Field -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="normalized_risk_score">Normalized Risk Score:</label>
-            <input type="number" step="0.01" name="normalized_risk_score" id="normalized_risk_score" class="input-text" placeholder="Enter normalized risk score" required>
-          </div>
-        </div>
+            <div class="mb-3">
+                <label for="insurance_plan" class="form-label">Insurance Plan (numeric)</label>
+                <input type="number" class="form-control" name="insurance_plan" step="0.1" required>
+            </div>
 
-        <!-- Gender Male Field -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="gender_Male">Gender (Male):</label>
-            <input type="number" name="gender_Male" id="gender_Male" class="input-text" placeholder="Enter 1 if Male, 0 if Female" required>
-          </div>
-        </div>
+            <div class="mb-3">
+                <label class="form-label">Select Diseases</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="diseases" value="diabetes">
+                    <label class="form-check-label">Diabetes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="diseases" value="heart disease">
+                    <label class="form-check-label">Heart Disease</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="diseases" value="high blood pressure">
+                    <label class="form-check-label">High Blood Pressure</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="diseases" value="thyroid">
+                    <label class="form-check-label">Thyroid</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="diseases" value="no disease">
+                    <label class="form-check-label">No Disease</label>
+                </div>
+            </div>
 
-        <!-- Region Fields -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="region_Northwest">Region (Northwest):</label>
-            <input type="number" name="region_Northwest" id="region_Northwest" class="input-text" placeholder="Enter 1 if Northwest" required>
-          </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select class="form-select" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
 
-          <div class="form-row">
-            <label for="region_Southeast">Region (Southeast):</label>
-            <input type="number" name="region_Southeast" id="region_Southeast" class="input-text" placeholder="Enter 1 if Southeast" required>
-          </div>
+            <div class="mb-3">
+                <label for="region" class="form-label">Region</label>
+                <select class="form-select" name="region" required>
+                    <option value="Northwest">Northwest</option>
+                    <option value="Southeast">Southeast</option>
+                    <option value="Southwest">Southwest</option>
+                    <option value="Northeast">Northeast</option>
+                </select>
+            </div>
 
-          <div class="form-row">
-            <label for="region_Southwest">Region (Southwest):</label>
-            <input type="number" name="region_Southwest" id="region_Southwest" class="input-text" placeholder="Enter 1 if Southwest" required>
-          </div>
-        </div>
+            <div class="mb-3">
+                <label for="marital_status" class="form-label">Marital Status</label>
+                <select class="form-select" name="marital_status" required>
+                    <option value="Unmarried">Unmarried</option>
+                    <option value="Married">Married</option>
+                </select>
+            </div>
 
-        <!-- Marital Status Field -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="marital_status_Unmarried">Marital Status (Unmarried):</label>
-            <input type="number" name="marital_status_Unmarried" id="marital_status_Unmarried" class="input-text" placeholder="Enter 1 if Unmarried" required>
-          </div>
-        </div>
+            <div class="mb-3">
+                <label for="bmi_category" class="form-label">BMI Category</label>
+                <select class="form-select" name="bmi_category" required>
+                    <option value="Obesity">Obesity</option>
+                    <option value="Overweight">Overweight</option>
+                    <option value="Underweight">Underweight</option>
+                    <option value="Normal">Normal</option>
+                </select>
+            </div>
 
-        <!-- BMI Category Fields -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="bmi_category_Obesity">BMI Category (Obesity):</label>
-            <input type="number" name="bmi_category_Obesity" id="bmi_category_Obesity" class="input-text" placeholder="Enter 1 if Obesity" required>
-          </div>
+            <div class="mb-3">
+                <label for="smoking_status" class="form-label">Smoking Status</label>
+                <select class="form-select" name="smoking_status" required>
+                    <option value="Occasional">Occasional</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Non-smoker">Non-smoker</option>
+                </select>
+            </div>
 
-          <div class="form-row">
-            <label for="bmi_category_Overweight">BMI Category (Overweight):</label>
-            <input type="number" name="bmi_category_Overweight" id="bmi_category_Overweight" class="input-text" placeholder="Enter 1 if Overweight" required>
-          </div>
+            <div class="mb-3">
+                <label for="employment_status" class="form-label">Employment Status</label>
+                <select class="form-select" name="employment_status" required>
+                    <option value="Salaried">Salaried</option>
+                    <option value="Self-Employed">Self-Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                </select>
+            </div>
 
-          <div class="form-row">
-            <label for="bmi_category_Underweight">BMI Category (Underweight):</label>
-            <input type="number" name="bmi_category_Underweight" id="bmi_category_Underweight" class="input-text" placeholder="Enter 1 if Underweight" required>
-          </div>
-        </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Predict Premium</button>
+            </div>
 
-        <!-- Smoking Status Fields -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="smoking_status_Occasional">Smoking Status (Occasional):</label>
-            <input type="number" name="smoking_status_Occasional" id="smoking_status_Occasional" class="input-text" placeholder="Enter 1 if Occasional" required>
-          </div>
-
-          <div class="form-row">
-            <label for="smoking_status_Regular">Smoking Status (Regular):</label>
-            <input type="number" name="smoking_status_Regular" id="smoking_status_Regular" class="input-text" placeholder="Enter 1 if Regular" required>
-          </div>
-        </div>
-
-        <!-- Employment Status Fields -->
-        <div class="form-row-total">
-          <div class="form-row">
-            <label for="employment_status_Salaried">Employment Status (Salaried):</label>
-            <input type="number" name="employment_status_Salaried" id="employment_status_Salaried" class="input-text" placeholder="Enter 1 if Salaried" required>
-          </div>
-
-          <div class="form-row">
-            <label for="employment_status_Self_Employed">Employment Status (Self-Employed):</label>
-            <input type="number" name="employment_status_Self_Employed" id="employment_status_Self_Employed" class="input-text" placeholder="Enter 1 if Self-Employed" required>
-          </div>
-        </div>
-
-        <!-- Submit Button -->
-        <div class="form-row-last">
-          <input type="submit" name="register" class="register" value="Predict">
-        </div>
-      </form>
+        </form>
     </div>
-  </div>
 </div>
 
 </body>
